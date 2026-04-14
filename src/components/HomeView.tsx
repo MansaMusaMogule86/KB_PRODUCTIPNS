@@ -128,7 +128,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-lg bg-surface-container aspect-square cursor-pointer"
+                className="group relative overflow-hidden rounded-lg bg-surface-container aspect-square"
               >
                 <img 
                   src={item.img}
@@ -162,7 +162,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {[
-              { img: '/GYMSHOOTING/GYMSJOOTING.png', alt: 'Gym Workout Setup' },
+              { img: '/GYMSHOOTING/GYMSHOOTING.png', alt: 'Gym Workout Setup' },
               { img: '/GYMSHOOTING/Screenshot_2026-04-14_193957.png', alt: 'Male Athlete - Posing' },
               { img: '/GYMSHOOTING/Screenshot_2026-04-14_194322.png', alt: 'Athlete - Strength Pose' },
               { img: '/GYMSHOOTING/Screenshot_2026-04-14_194332.png', alt: 'Athlete - Workout' },

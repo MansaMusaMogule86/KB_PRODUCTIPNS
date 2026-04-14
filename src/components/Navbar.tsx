@@ -67,6 +67,8 @@ export default function Navbar({ activePage, onNavigate }: NavbarProps) {
         <button 
           className="md:hidden text-on-surface"
           onClick={() => setMobileMenuOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={mobileMenuOpen}
         >
           <Icons.Menu size={28} />
         </button>
@@ -92,6 +94,7 @@ export default function Navbar({ activePage, onNavigate }: NavbarProps) {
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
                   className="text-on-surface p-2"
+                  aria-label="Close menu"
                 >
                   <Icons.X size={32} />
                 </button>

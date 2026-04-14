@@ -73,20 +73,25 @@
 @layer base {
   body {
     @apply bg-background text-on-surface font-sans selection:bg-primary selection:text-on-primary antialiased;
-    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline uppercase tracking-tighter;
   }
+
+  @media (min-width: 1024px) {
+    body {
+      background-attachment: fixed;
+    }
+  }
 }
 
 .cinematic-vignette {
-  background: radial-gradient(circle, transparent 20%, rgba(14, 14, 14, 0.8) 100%);
+  background: radial-gradient(circle, transparent 20%, rgba(10, 10, 10, 0.8) 100%);
 }
 
 .cinematic-gradient {
-  background: linear-gradient(180deg, rgba(14,14,14,0) 0%, rgba(14,14,14,1) 100%);
+  background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,1) 100%);
 }
 
 .text-stroke-primary {

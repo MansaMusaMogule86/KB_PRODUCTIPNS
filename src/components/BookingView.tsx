@@ -37,20 +37,27 @@ export default function BookingView() {
       Object.entries(formData).forEach(([k, v]) => formDataToSend.append(k, v));
       formDataToSend.append('_subject', `KB Productions Booking: ${formData.name}`);
       formDataToSend.append('_captcha', 'false');
-      await fetch('https://formsubmit.co/Karim.elbrig@gmail.com', {
+      const response = await fetch('https://formsubmit.co/Karim.elbrig@gmail.com', {
         method: 'POST',
         body: formDataToSend
       });
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Form submission failed:', errorText);
+        setLoading(false);
+        return;
+      }
       setSubmitted(true);
+      setLoading(false);
       setTimeout(() => {
         setStep(0);
         setFormData({ name: '', email: '', phone: '', service: '', budget: '', deadline: '', brief: '' });
         setSubmitted(false);
       }, 4000);
     } catch (err) {
-      console.error(err);
+      console.error('Form submission error:', err);
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
@@ -81,15 +88,21 @@ export default function BookingView() {
               {step === 0 && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                   <h2 className="text-3xl font-headline font-bold">Project Vision</h2>
-                  <input name="service" value={formData.service} onChange={handleChange} placeholder="Service" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" list="services" />
-                  <datalist id="services">
-                    <option value="Commercial">Commercial</option>
-                    <option value="Music Video">Music Video</option>
-                    <option value="Social">Social</option>
-                    <option value="VFX">VFX</option>
-                    <option value="Consulting">Consulting</option>
-                  </datalist>
-                  <textarea name="brief" value={formData.brief} onChange={handleChange} placeholder="Brief" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" rows={4} />
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Service</label>
+                    <input id="service" name="service" value={formData.service} onChange={handleChange} placeholder="Choose a service" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" list="services" />
+                    <datalist id="services">
+                      <option value="Commercial">Commercial</option>
+                      <option value="Music Video">Music Video</option>
+                      <option value="Social">Social</option>
+                      <option value="VFX">VFX</option>
+                      <option value="Consulting">Consulting</option>
+                    </datalist>
+                  </div>
+                  <div>
+                    <label htmlFor="brief" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Brief</label>
+                    <textarea id="brief" name="brief" value={formData.brief} onChange={handleChange} placeholder="Describe your project" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" rows={4} />
+                  </div>
                   <button type="button" onClick={() => formData.service && formData.brief && setStep(1)} className="w-full bg-primary text-on-primary font-bold py-3 rounded-xl">Next</button>
                 </motion.div>
               )}
@@ -97,8 +110,14 @@ export default function BookingView() {
               {step === 1 && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                   <h2 className="text-3xl font-headline font-bold">Budget</h2>
-                  <input name="budget" value={formData.budget} onChange={handleChange} placeholder="Budget" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
-                  <input name="deadline" type="date" value={formData.deadline} onChange={handleChange} className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <div>
+                    <label htmlFor="budget" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Budget</label>
+                    <input id="budget" name="budget" value={formData.budget} onChange={handleChange} placeholder="e.g., $5000-$10000" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  </div>
+                  <div>
+                    <label htmlFor="deadline" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Deadline</label>
+                    <input id="deadline" name="deadline" type="date" value={formData.deadline} onChange={handleChange} className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  </div>
                   <div className="flex gap-4">
                     <button type="button" onClick={() => setStep(0)} className="flex-1 bg-outline-variant/20 py-3 rounded-xl">Back</button>
                     <button type="button" onClick={() => formData.budget && formData.deadline && setStep(2)} className="flex-1 bg-primary text-on-primary py-3 rounded-xl">Next</button>
@@ -109,9 +128,18 @@ export default function BookingView() {
               {step === 2 && (
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
                   <h2 className="text-3xl font-headline font-bold">Contact</h2>
-                  <input name="name" value={formData.name} onChange={handleChange} placeholder="Name" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
-                  <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
-                  <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Name</label>
+                    <input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Your full name" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Email</label>
+                    <input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your@email.com" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-on-surface mb-2 uppercase tracking-tighter">Phone</label>
+                    <input id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="+1 (555) 000-0000" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  </div>
                   <div className="flex gap-4">
                     <button type="button" onClick={() => setStep(1)} className="flex-1 bg-outline-variant/20 py-3 rounded-xl">Back</button>
                     <button disabled={!formData.name || !formData.email || !formData.phone || loading} type="submit" className="flex-1 bg-primary text-on-primary py-3 rounded-xl">{loading ? 'Sending' : 'Submit'}</button>

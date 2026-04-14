@@ -31,8 +31,8 @@ export const PROJECTS: Project[] = [
     id: 'iron-legacy',
     title: 'IRON LEGACY',
     category: 'GYM',
-    thumbnail: '/GYMSHOOTING/GYMSJOOTING.png',
-    heroImage: '/GYMSHOOTING/GYMSJOOTING.png',
+    thumbnail: '/GYMSHOOTING/GYMSHOOTING.png',
+    heroImage: '/GYMSHOOTING/GYMSHOOTING.png',
     description: 'Raw, high-energy visual storytelling for the modern athlete. Capturing the grit, sweat, and determination of elite performance training.',
     keyFeatures: [
       'High-Speed Slow Motion',
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
       'Low-Light Cinematic Lighting'
     ],
     gallery: [
-      '/GYMSHOOTING/GYMSJOOTING.png',
+      '/GYMSHOOTING/GYMSHOOTING.png',
       '/GYMSHOOTING/Screenshot_2026-04-14_193957.png',
       '/GYMSHOOTING/Screenshot_2026-04-14_194322.png',
       '/GYMSHOOTING/Screenshot_2026-04-14_194332.png',

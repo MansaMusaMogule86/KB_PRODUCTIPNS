@@ -71,13 +71,14 @@ export default function Footer({ onNavigate }: FooterProps) {
             <h4 className="text-on-surface font-mono font-bold text-xs uppercase tracking-[0.3em]">Connect</h4>
             <div className="flex gap-6 justify-start md:justify-end">
               {[
-                { Icon: Icons.Instagram, href: '#' },
-                { Icon: Icons.Vimeo, href: '#' },
-                { Icon: Icons.Linkedin, href: '#' }
-              ].map((social, idx) => (
+                { Icon: Icons.Instagram, href: '#', label: 'Instagram' },
+                { Icon: Icons.Vimeo, href: '#', label: 'Vimeo' },
+                { Icon: Icons.Linkedin, href: '#', label: 'Linkedin' }
+              ].map((social) => (
                 <motion.a 
-                  key={idx}
+                  key={social.label}
                   href={social.href}
+                  aria-label={social.label}
                   whileHover={{ y: -4, color: 'var(--color-primary)' }}
                   className="text-on-surface-variant transition-colors"
                 >
