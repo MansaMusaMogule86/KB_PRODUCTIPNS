@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+
+  --color-primary: #edff4e;
+  --color-primary-dim: #dff040;
+  --color-primary-fixed-dim: #d6e837;
+  
+  --color-background: #0e0e0e;
+  --color-surface: #0e0e0e;
+  --color-surface-container-low: #131313;
+  --color-surface-container: #1a1a1a;
+  --color-surface-container-high: #20201f;
+  --color-surface-container-highest: #262626;
+  --color-surface-container-lowest: #000000;
+  --color-surface-bright: #2c2c2c;
+  --color-surface-variant: #262626;
+
+  --color-on-surface: #ffffff;
+  --color-on-surface-variant: #adaaaa;
+  --color-on-primary: #586100;
+  
+  --color-outline: #767575;
+  --color-outline-variant: #484847;
+
+  --radius-2xl: 1.5rem;
+
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer utilities {
+  .animate-infinite-scroll {
+    animation: infinite-scroll 30s linear infinite;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans selection:bg-primary selection:text-on-primary antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline uppercase tracking-tighter;
+  }
+}
+
+.cinematic-vignette {
+  background: radial-gradient(circle, transparent 20%, rgba(14, 14, 14, 0.8) 100%);
+}
+
+.cinematic-gradient {
+  background: linear-gradient(180deg, rgba(14,14,14,0) 0%, rgba(14,14,14,1) 100%);
+}
+
+.text-stroke-primary {
+  -webkit-text-stroke: 1px #edff4e;
+  color: transparent;
+}
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(237, 255, 78, 0.4);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
