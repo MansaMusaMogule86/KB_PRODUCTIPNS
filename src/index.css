@@ -1,15 +1,18 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap');
 
 @theme {
   --font-headline: "Space Grotesk", sans-serif;
   --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
 
   --color-primary: #edff4e;
   --color-primary-dim: #dff040;
   --color-primary-fixed-dim: #d6e837;
+  --color-primary-glow: rgba(237, 255, 78, 0.15);
   
-  --color-background: #0e0e0e;
+  --color-background: #0a0a0a;
   --color-surface: #0e0e0e;
   --color-surface-container-low: #131313;
   --color-surface-container: #1a1a1a;
@@ -20,7 +23,7 @@
   --color-surface-variant: #262626;
 
   --color-on-surface: #ffffff;
-  --color-on-surface-variant: #adaaaa;
+  --color-on-surface-variant: #b0b0b0;
   --color-on-primary: #586100;
   
   --color-outline: #767575;
@@ -32,17 +35,45 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+
+  @keyframes subtle-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
 }
 
 @layer utilities {
   .animate-infinite-scroll {
     animation: infinite-scroll 30s linear infinite;
   }
+
+  .animate-subtle-glow {
+    animation: subtle-glow 3s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .grain {
+    background-image: 
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='400' height='400' fill='%23edff4e' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 30px var(--color-primary-glow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
 }
 
 @layer base {
   body {
     @apply bg-background text-on-surface font-sans selection:bg-primary selection:text-on-primary antialiased;
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {

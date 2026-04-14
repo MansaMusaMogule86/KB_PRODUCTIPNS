@@ -56,19 +56,21 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] overflow-hidden">
-        <motion.img 
-          initial={{ scale: 1.1, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="w-full h-full object-cover"
-          src={project.heroImage}
-          alt={project.title}
-          referrerPolicy="no-referrer"
-        />
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden w-full max-w-full">
+        <div className="absolute inset-0 overflow-hidden w-full h-full">
+          <motion.img 
+            initial={{ scale: 1.1, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="w-full h-full object-cover"
+            src={project.heroImage}
+            alt={project.title}
+            referrerPolicy="no-referrer"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
         
-        <div className="absolute bottom-0 left-0 w-full p-6 md:p-20">
+        <div className="absolute bottom-0 left-0 w-full p-6 md:p-16">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ y: 30, opacity: 0 }}

@@ -18,7 +18,9 @@ import {
   MapPin,
   Share2,
   Copy,
-  Check
+  Check,
+  Menu,
+  X
 } from 'lucide-react';
 
 export const Icons = {
@@ -41,5 +43,7 @@ export const Icons = {
   MapPin,
   Share: Share2,
   Copy,
-  CheckIcon: Check
+  CheckIcon: Check,
+  Menu,
+  X
 };

@@ -3,11 +3,11 @@ import { Project } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 'glass-residence',
-    title: 'THE GLASS RESIDENCE',
-    category: 'REAL ESTATE',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANpHaYZm5H3ojq11mqXtII_5rjfnY6vwUbjPZ5hkhgFvfLEUnruJLgvlLY2H6_-jbHIBU2Oknc_4IqB1ATz2Hqp-iMbXi9-GH9adQIb5TMsou645NURKggEA-V1zirqp8n8vN_ybkGatT5z0Ga9JIjZ5_uOdd3tWhKVkTM9V_7rkaf75Bo1_LqKzpNrFGLW5HVXeTudwi1MNSgFoU-ukwSTkNa5vp8BJVhUBVKdwmwX7FOCEZdR-iBID62qqctE1pGKdYry1S8yQA',
-    heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuANpHaYZm5H3ojq11mqXtII_5rjfnY6vwUbjPZ5hkhgFvfLEUnruJLgvlLY2H6_-jbHIBU2Oknc_4IqB1ATz2Hqp-iMbXi9-GH9adQIb5TMsou645NURKggEA-V1zirqp8n8vN_ybkGatT5z0Ga9JIjZ5_uOdd3tWhKVkTM9V_7rkaf75Bo1_LqKzpNrFGLW5HVXeTudwi1MNSgFoU-ukwSTkNa5vp8BJVhUBVKdwmwX7FOCEZdR-iBID62qqctE1pGKdYry1S8yQA',
-    description: 'A cinematic exploration of architectural brilliance, capturing the seamless integration of glass and nature in a luxury residential masterpiece.',
+    title: 'EDITORIAL ELEGANCE',
+    category: 'FASHION',
+    thumbnail: '/Studioshots/Screenshot_2026-04-14_212256.png',
+    heroImage: '/Studioshots/Screenshot_2026-04-14_212256.png',
+    description: 'High-fashion editorial photography capturing raw elegance and attitude. Urban aesthetic meets luxury styling in this premium brand shoot.',  
     keyFeatures: [
       '4K Cinematic Drone Footage',
       'Dynamic Interior Walkthroughs',
@@ -15,9 +15,14 @@ export const PROJECTS: Project[] = [
       'Custom Sound Design'
     ],
     gallery: [
-      'https://picsum.photos/seed/glass1/1200/800',
-      'https://picsum.photos/seed/glass2/1200/800',
-      'https://picsum.photos/seed/glass3/1200/800'
+      '/Studioshots/Screenshot_2026-04-14_212256.png',
+      '/Studioshots/Screenshot_2026-04-14_212300.png',
+      '/Studioshots/Screenshot_2026-04-14_212305.png',
+      '/Studioshots/Screenshot_2026-04-14_212310.png',
+      '/Studioshots/Screenshot_2026-04-14_212314.png',
+      '/Studioshots/Screenshot_2026-04-14_212319.png',
+      '/Studioshots/Screenshot_2026-04-14_212324.png',
+      '/Studioshots/Screenshot_2026-04-14_212330.png'
     ],
     client: 'Luxe Estates',
     year: '2024'
@@ -26,8 +31,8 @@ export const PROJECTS: Project[] = [
     id: 'iron-legacy',
     title: 'IRON LEGACY',
     category: 'GYM',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEolhvYDwxualOBa9wCDnTKmgCviStDp_-EpM1nE9SZYDVMN9IHG4e85-UVnM8p613X5-KtWJ7PeOWMN2FxjaSFlahmxoog0WleuLAESRXIKRa4Gfqih7XeGnjpBb966k2hNfO-H4CWgJDUkjH60s31aox1RrhTfaIEUNuuqfNLD8JbbTG_xs3YiDv5GcInuovxc5EGALhU05KtpPJgZ1znv8myy-84somBWxU04UjTSn2wUK5jjHzp8K0tZLslHmuCTsDFtZ6rdE',
-    heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDEolhvYDwxualOBa9wCDnTKmgCviStDp_-EpM1nE9SZYDVMN9IHG4e85-UVnM8p613X5-KtWJ7PeOWMN2FxjaSFlahmxoog0WleuLAESRXIKRa4Gfqih7XeGnjpBb966k2hNfO-H4CWgJDUkjH60s31aox1RrhTfaIEUNuuqfNLD8JbbTG_xs3YiDv5GcInuovxc5EGALhU05KtpPJgZ1znv8myy-84somBWxU04UjTSn2wUK5jjHzp8K0tZLslHmuCTsDFtZ6rdE',
+    thumbnail: '/GYMSHOOTING/GYMSJOOTING.png',
+    heroImage: '/GYMSHOOTING/GYMSJOOTING.png',
     description: 'Raw, high-energy visual storytelling for the modern athlete. Capturing the grit, sweat, and determination of elite performance training.',
     keyFeatures: [
       'High-Speed Slow Motion',
@@ -36,9 +41,13 @@ export const PROJECTS: Project[] = [
       'Low-Light Cinematic Lighting'
     ],
     gallery: [
-      'https://picsum.photos/seed/gym1/1200/800',
-      'https://picsum.photos/seed/gym2/1200/800',
-      'https://picsum.photos/seed/gym3/1200/800'
+      '/GYMSHOOTING/GYMSJOOTING.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_193957.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_194322.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_194332.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_194342.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_194349.png',
+      '/GYMSHOOTING/Screenshot_2026-04-14_194429.png'
     ],
     client: 'Iron Legacy Fitness',
     year: '2023'
@@ -47,8 +56,8 @@ export const PROJECTS: Project[] = [
     id: 'midnight-pursuit',
     title: 'MIDNIGHT PURSUIT',
     category: 'CARS',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJlcA6W2SmkaC4gpoQD4dq_iv5eXCtxSBAXv864uB77GWQVXos-S5aP1yIIbSDMuKiOR9xGlcVRNm1LCMq5nrAn_UT4cw8EICN0JJ8GUFw2nMzD_gHFnFbLjh1F_18FMr6XCwMIIlHkwuJ1yZ-7OaUh3WPppF6Mgw89woBG2xtULyX4W5AhHPzSOlR-IOagZDX5DoidZ6nSssVIYUEHB5s6Lit_AakM5gwtny2bx8UXbp116yGIfKAbsVQ2dy95wjd219jvjQtjXk',
-    heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAJlcA6W2SmkaC4gpoQD4dq_iv5eXCtxSBAXv864uB77GWQVXos-S5aP1yIIbSDMuKiOR9xGlcVRNm1LCMq5nrAn_UT4cw8EICN0JJ8GUFw2nMzD_gHFnFbLjh1F_18FMr6XCwMIIlHkwuJ1yZ-7OaUh3WPppF6Mgw89woBG2xtULyX4W5AhHPzSOlR-IOagZDX5DoidZ6nSssVIYUEHB5s6Lit_AakM5gwtny2bx8UXbp116yGIfKAbsVQ2dy95wjd219jvjQtjXk',
+    thumbnail: '/cars/Screenshot_2026-04-14_212547.png',
+    heroImage: '/cars/Screenshot_2026-04-14_212547.png',
     description: 'A neon-drenched automotive odyssey through the city streets at night. Highlighting precision engineering and sleek aesthetics.',
     keyFeatures: [
       'Tracking Vehicle Shots',
@@ -57,53 +66,15 @@ export const PROJECTS: Project[] = [
       'Dynamic Speed Ramping'
     ],
     gallery: [
-      'https://picsum.photos/seed/car1/1200/800',
-      'https://picsum.photos/seed/car2/1200/800',
-      'https://picsum.photos/seed/car3/1200/800'
+      '/cars/Screenshot_2026-04-14_212547.png',
+      '/cars/Screenshot_2026-04-14_212557.png',
+      '/cars/Screenshot_2026-04-14_212602.png',
+      '/cars/Screenshot_2026-04-14_212605.png',
+      '/cars/Screenshot_2026-04-14_212609.png',
+      '/cars/Screenshot_2026-04-14_212618.png'
     ],
     client: 'Apex Motors',
     year: '2024'
   },
-  {
-    id: 'electric-horizon',
-    title: 'ELECTRIC HORIZON',
-    category: 'EVENTS',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD4FiU3fYrGmAterELLoPil7ImRLVg6GgnThdq3l1oZ5wz90UWlbVEJzYs8g4cy9TA70BIbEG5vpFwdpH7YKucPAkUw1geYXBG_Xt-3CEFEAvgHXms-kqGdRsoJPeHdR629DgbXaKT1SQjh93xksXNp4BD-FDAQGZf4nccRm9vNvXe-vwxQMxGhsP70F_qg4ZkKLFZL3O5bDjhXvqTiGztwYZqcsWOpBZNfzoY5ZflhHzJanS6Jt-WnLin_v9CxRGb14afp-jqzjaw',
-    heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD4FiU3fYrGmAterELLoPil7ImRLVg6GgnThdq3l1oZ5wz90UWlbVEJzYs8g4cy9TA70BIbEG5vpFwdpH7YKucPAkUw1geYXBG_Xt-3CEFEAvgHXms-kqGdRsoJPeHdR629DgbXaKT1SQjh93xksXNp4BD-FDAQGZf4nccRm9vNvXe-vwxQMxGhsP70F_qg4ZkKLFZL3O5bDjhXvqTiGztwYZqcsWOpBZNfzoY5ZflhHzJanS6Jt-WnLin_v9CxRGb14afp-jqzjaw',
-    description: 'Capturing the electric atmosphere of a global music festival. Immersive visuals that put the viewer in the heart of the crowd.',
-    keyFeatures: [
-      'Multi-Cam Live Capture',
-      'Crowd Energy Mapping',
-      'Stage Visual Integration',
-      'Fast-Paced Editorial Cut'
-    ],
-    gallery: [
-      'https://picsum.photos/seed/event1/1200/800',
-      'https://picsum.photos/seed/event2/1200/800',
-      'https://picsum.photos/seed/event3/1200/800'
-    ],
-    client: 'Horizon Festivals',
-    year: '2023'
-  },
-  {
-    id: 'monarch-watches',
-    title: 'MONARCH WATCHES',
-    category: 'BRANDS',
-    thumbnail: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9FMOa_GHRKTR2wszhjAp83iyycaQnytPRDozSEMvWF6XPLSm8MjbGKwRHdQL6u67yY89qMcjHFFWFE1ekCE1A6b3r9zJ2xN555wX5CLf6SbBQuv4CAQ3pjfZTFB59qGbRzqLwlRWt3ClaIvUbocHnyiBw6P2x8EzkYl1D_I-orvEQgnnMbwUrSZ7KSISodI_MMaxemroQTx9s3xjxR-gbu3smYGcGbwJRNzyOvGeiJ3ZhjXsFglnw75mrDIIAsvNrNKC1JMOeIjo',
-    heroImage: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD9FMOa_GHRKTR2wszhjAp83iyycaQnytPRDozSEMvWF6XPLSm8MjbGKwRHdQL6u67yY89qMcjHFFWFE1ekCE1A6b3r9zJ2xN555wX5CLf6SbBQuv4CAQ3pjfZTFB59qGbRzqLwlRWt3ClaIvUbocHnyiBw6P2x8EzkYl1D_I-orvEQgnnMbwUrSZ7KSISodI_MMaxemroQTx9s3xjxR-gbu3smYGcGbwJRNzyOvGeiJ3ZhjXsFglnw75mrDIIAsvNrNKC1JMOeIjo',
-    description: 'A macro-cinematic look at the intricate craftsmanship of luxury timepieces. Precision, elegance, and timeless design.',
-    keyFeatures: [
-      'Macro Product Cinematography',
-      'Soft Editorial Lighting',
-      'Texture and Detail Focus',
-      'Elegant Motion Graphics'
-    ],
-    gallery: [
-      'https://picsum.photos/seed/watch1/1200/800',
-      'https://picsum.photos/seed/watch2/1200/800',
-      'https://picsum.photos/seed/watch3/1200/800'
-    ],
-    client: 'Monarch Luxury',
-    year: '2024'
-  }
+
 ];

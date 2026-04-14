@@ -1,103 +1,136 @@
-import { motion } from 'motion/react';
-import { Icons } from './Icons';
+﻿import { motion } from 'motion/react';
+import { useState } from 'react';
+
+type FormDataType = {
+  name: string;
+  email: string;
+  phone: string;
+  service: string;
+  budget: string;
+  deadline: string;
+  brief: string;
+};
 
 export default function BookingView() {
+  const [step, setStep] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormDataType>({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    budget: '',
+    deadline: '',
+    brief: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([k, v]) => formDataToSend.append(k, v));
+      formDataToSend.append('_subject', `KB Productions Booking: ${formData.name}`);
+      formDataToSend.append('_captcha', 'false');
+      await fetch('https://formsubmit.co/Karim.elbrig@gmail.com', {
+        method: 'POST',
+        body: formDataToSend
+      });
+      setSubmitted(true);
+      setTimeout(() => {
+        setStep(0);
+        setFormData({ name: '', email: '', phone: '', service: '', budget: '', deadline: '', brief: '' });
+        setSubmitted(false);
+      }, 4000);
+    } catch (err) {
+      console.error(err);
+    }
+    setLoading(false);
+  };
+
   return (
     <div className="flex flex-col pt-32 pb-20 px-6 relative min-h-screen">
-      {/* Cinematic Background Elements */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary/20 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-1/4 -left-48 w-[600px] h-[600px] bg-primary/10 blur-[160px] rounded-full"></div>
-        <img 
-          className="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuADi5Ci2GlYrEnHzGhGBYm1Wjp5I48WQM1J096zyIxJXh2ZBHRqWgGDHIQRQK6jPOZZWaTTWlchskQsixqu2fNczGe2pt3sIhewoVX1elQ99m9gBrRnIYd-E9mypLBKCk1sbaxbkEO9ZCIMuqrSRsT-vY3HxDWNa7mJP4TsvmgIkx8rNFKcE3f5DgLqDk0M-DmoPl4Jr4WyiVFH8Tmiy2941Dx-1D0YBrqs0bgs4h5h0_aLy6saWE6jkPoizqPZyzya1gG-lGQLNiY"
-          alt="Studio Background"
-          referrerPolicy="no-referrer"
-        />
-      </div>
+      <section className="max-w-5xl w-full relative z-10 mx-auto">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
+          <h1 className="font-headline text-5xl md:text-7xl font-black uppercase mb-4">
+            BRING YOUR <span className="text-primary">VISION</span> TO LIFE
+          </h1>
+          <p className="text-on-surface-variant text-lg">{submitted ? 'Confirmed' : `Step ${String(step + 1)} of 3`}</p>
+        </motion.div>
 
-      <section className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-start relative z-10 mx-auto">
-        {/* Left Side: Editorial Content */}
-        <div className="lg:col-span-5 space-y-8">
-          <div className="space-y-4">
-            <span className="font-headline text-primary font-bold tracking-[0.2em] uppercase text-xs">PRE-PRODUCTION UNIT</span>
-            <h1 className="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9]">
-              SECURE YOUR <span className="text-primary-fixed-dim">SLOT</span>
-            </h1>
-            <p className="text-on-surface-variant text-lg max-w-md leading-relaxed">
-              Ready to elevate your vision? Our studio slots for Q3/Q4 are now open. Provide your project details below to initiate the briefing process.
-            </p>
-          </div>
-          <div className="space-y-6 pt-8 border-t border-outline-variant/20">
-            <div className="flex items-start gap-4">
-              <Icons.Video className="text-primary" size={24} />
-              <div>
-                <p className="font-headline font-bold text-sm uppercase">Global Availability</p>
-                <p className="text-on-surface-variant text-sm">Remote direction or on-set locations worldwide.</p>
+        {submitted ? (
+          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="bg-primary/20 border-2 border-primary rounded-2xl p-12 text-center">
+            <div className="text-6xl mb-6">📧</div>
+            <h2 className="text-3xl font-headline font-bold text-primary mb-2">BOOKING CONFIRMED</h2>
+            <p className="text-on-surface-variant">Check Karim.elbrig@gmail.com</p>
+          </motion.div>
+        ) : (
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-2 bg-surface-container-low backdrop-blur-xl p-12 rounded-2xl border border-primary/20 shadow-2xl">
+              <div className="flex gap-3 mb-12">
+                {[0, 1, 2].map((i) => (
+                  <div key={i} className={`h-2 flex-1 rounded-full transition-all ${i <= step ? 'bg-primary shadow-primary/50' : 'bg-outline-variant/30'}`} />
+                ))}
               </div>
-            </div>
-            <div className="flex items-start gap-4">
-              <Icons.Zap className="text-primary" size={24} />
-              <div>
-                <p className="font-headline font-bold text-sm uppercase">Rapid Turnaround</p>
-                <p className="text-on-surface-variant text-sm">48-hour response time for all qualified production inquiries.</p>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Right Side: Booking Form */}
-        <div className="lg:col-span-7 bg-surface-container-low p-8 md:p-12 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-outline-variant/10">
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-8" onSubmit={(e) => e.preventDefault()}>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Full Name</label>
-              <input className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline transition-all p-3 rounded-t-lg" placeholder="John Doe" type="text"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Email Address</label>
-              <input className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline transition-all p-3 rounded-t-lg" placeholder="john@productions.com" type="email"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Phone Number</label>
-              <input className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline transition-all p-3 rounded-t-lg" placeholder="+1 (555) 000-0000" type="tel"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Service Type</label>
-              <select className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface transition-all p-3 rounded-t-lg appearance-none">
-                <option>Commercial Production</option>
-                <option>Music Video</option>
-                <option>Social Content Suite</option>
-                <option>Post-Production/VFX</option>
-                <option>Creative Consulting</option>
-              </select>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Budget Range</label>
-              <select className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface transition-all p-3 rounded-t-lg appearance-none">
-                <option>$5k - $15k</option>
-                <option>$15k - $50k</option>
-                <option>$50k - $100k</option>
-                <option>$100k+</option>
-              </select>
-            </div>
-            <div className="flex flex-col gap-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Target Project Date</label>
-              <input className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface transition-all p-3 rounded-t-lg" type="date"/>
-            </div>
-            <div className="flex flex-col gap-2 md:col-span-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Project Brief & Vision</label>
-              <textarea className="bg-surface-container-lowest border-0 border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface placeholder:text-outline transition-all p-3 rounded-t-lg resize-none" placeholder="Tell us about the project scope, aesthetic, and goals..." rows={4}></textarea>
-            </div>
-            <div className="md:col-span-2 pt-4">
-              <button className="w-full bg-primary text-on-primary font-headline font-black uppercase text-xl py-6 rounded-2xl tracking-tighter hover:bg-primary-dim transition-all active:scale-[0.98] shadow-lg shadow-primary/10" type="submit">
-                SUBMIT BOOKING
-              </button>
-              <p className="text-center text-[10px] uppercase font-bold text-outline mt-4 tracking-widest">
-                By clicking submit you agree to our production terms of service
-              </p>
-            </div>
+              {step === 0 && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+                  <h2 className="text-3xl font-headline font-bold">Project Vision</h2>
+                  <input name="service" value={formData.service} onChange={handleChange} placeholder="Service" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" list="services" />
+                  <datalist id="services">
+                    <option value="Commercial">Commercial</option>
+                    <option value="Music Video">Music Video</option>
+                    <option value="Social">Social</option>
+                    <option value="VFX">VFX</option>
+                    <option value="Consulting">Consulting</option>
+                  </datalist>
+                  <textarea name="brief" value={formData.brief} onChange={handleChange} placeholder="Brief" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" rows={4} />
+                  <button type="button" onClick={() => formData.service && formData.brief && setStep(1)} className="w-full bg-primary text-on-primary font-bold py-3 rounded-xl">Next</button>
+                </motion.div>
+              )}
+
+              {step === 1 && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+                  <h2 className="text-3xl font-headline font-bold">Budget</h2>
+                  <input name="budget" value={formData.budget} onChange={handleChange} placeholder="Budget" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <input name="deadline" type="date" value={formData.deadline} onChange={handleChange} className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <div className="flex gap-4">
+                    <button type="button" onClick={() => setStep(0)} className="flex-1 bg-outline-variant/20 py-3 rounded-xl">Back</button>
+                    <button type="button" onClick={() => formData.budget && formData.deadline && setStep(2)} className="flex-1 bg-primary text-on-primary py-3 rounded-xl">Next</button>
+                  </div>
+                </motion.div>
+              )}
+
+              {step === 2 && (
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-6">
+                  <h2 className="text-3xl font-headline font-bold">Contact</h2>
+                  <input name="name" value={formData.name} onChange={handleChange} placeholder="Name" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone" className="w-full bg-surface-container-lowest border-2 border-outline-variant/30 focus:border-primary p-4 rounded-xl" />
+                  <div className="flex gap-4">
+                    <button type="button" onClick={() => setStep(1)} className="flex-1 bg-outline-variant/20 py-3 rounded-xl">Back</button>
+                    <button disabled={!formData.name || !formData.email || !formData.phone || loading} type="submit" className="flex-1 bg-primary text-on-primary py-3 rounded-xl">{loading ? 'Sending' : 'Submit'}</button>
+                  </div>
+                </motion.div>
+              )}
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-1">
+              <div className="bg-primary/10 border-2 border-primary/30 rounded-2xl p-6 sticky top-32">
+                <h3 className="font-headline font-bold text-primary uppercase text-sm mb-4">AI TIPS</h3>
+                <p className="text-sm text-on-surface-variant">
+                  {formData.service && `${formData.service} projects typically take 3-6 weeks with optimal team coordination`}
+                  {!formData.service && 'Select service above'}
+                </p>
+              </div>
+            </motion.div>
           </form>
-        </div>
+        )}
       </section>
     </div>
   );

@@ -7,6 +7,7 @@ import ServicesView from './components/ServicesView';
 import PortfolioView from './components/PortfolioView';
 import BookingView from './components/BookingView';
 import ProjectDetailView from './components/ProjectDetailView';
+import AboutView from './components/AboutView';
 import { Project } from './types';
 
 export default function App() {
@@ -45,7 +46,7 @@ export default function App() {
       case 'booking':
         return <BookingView />;
       case 'about':
-        return <HomeView onProjectSelect={handleProjectSelect} onNavigate={setActivePage} />;
+        return <AboutView onNavigate={setActivePage} />;
       default:
         return <HomeView onProjectSelect={handleProjectSelect} onNavigate={setActivePage} />;
     }
