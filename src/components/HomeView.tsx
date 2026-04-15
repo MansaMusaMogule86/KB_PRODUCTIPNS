@@ -1,8 +1,10 @@
 import { motion } from 'motion/react';
 import { Icons } from './Icons';
+import { Project } from '../types';
 
 interface HomeViewProps {
   onNavigate?: (page: string) => void;
+  onProjectSelect?: (project: Project) => void;
 }
 
 export default function HomeView({ onNavigate }: HomeViewProps) {
