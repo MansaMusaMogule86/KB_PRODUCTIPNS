@@ -48,6 +48,14 @@
 }
 
 @layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
   .animate-infinite-scroll {
     animation: infinite-scroll 30s linear infinite;
   }
@@ -73,6 +81,8 @@
 @layer base {
   body {
     @apply bg-background text-on-surface font-sans selection:bg-primary selection:text-on-primary antialiased;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -83,6 +93,25 @@
     body {
       background-attachment: fixed;
     }
+  }
+
+  /* Safe area support for notch/island devices */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Prevent horizontal overflow on mobile */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Better touch targets on mobile */
+  button, a {
+    min-height: 44px;
   }
 }
 

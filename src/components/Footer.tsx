@@ -7,8 +7,8 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="bg-surface-container-low w-full py-20 px-6 md:px-10 mt-auto border-t border-outline-variant/10">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-16 max-w-7xl mx-auto">
+    <footer className="bg-surface-container-low w-full py-12 md:py-20 px-6 md:px-10 mt-auto border-t border-outline-variant/10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export default function Footer({ onNavigate }: FooterProps) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="max-w-7xl mx-auto mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4"
+        className="max-w-7xl mx-auto mt-8 md:mt-16 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4"
       >
         <p className="text-on-surface-variant text-[10px] tracking-widest uppercase font-light">
           © 2026 KB PRODUCTIONS. ALL RIGHTS RESERVED.

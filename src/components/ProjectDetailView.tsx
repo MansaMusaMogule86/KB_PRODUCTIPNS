@@ -28,28 +28,30 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
   return (
     <div className="flex flex-col pt-20">
       {/* Top Bar */}
-      <div className="px-6 md:px-10 py-8 max-w-7xl mx-auto w-full flex justify-between items-center">
-        <button 
+      <div className="px-4 md:px-10 py-6 md:py-8 max-w-7xl mx-auto w-full flex justify-between items-center">
+        <button
           onClick={onBack}
           className="group flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors font-bold uppercase tracking-widest text-xs"
         >
           <Icons.ArrowRight className="rotate-180 group-hover:-translate-x-1 transition-transform" size={16} />
-          <span>BACK TO PORTFOLIO</span>
+          <span className="hidden sm:inline">BACK TO PORTFOLIO</span>
+          <span className="sm:hidden">BACK</span>
         </button>
 
-        <button 
+        <button
           onClick={handleShare}
           className="group flex items-center space-x-2 text-on-surface-variant hover:text-primary transition-colors font-bold uppercase tracking-widest text-xs"
         >
           {copied ? (
             <>
               <Icons.CheckIcon className="text-primary" size={16} />
-              <span className="text-primary">LINK COPIED</span>
+              <span className="text-primary">COPIED</span>
             </>
           ) : (
             <>
               <Icons.Share size={16} />
-              <span>SHARE PROJECT</span>
+              <span className="hidden sm:inline">SHARE PROJECT</span>
+              <span className="sm:hidden">SHARE</span>
             </>
           )}
         </button>
@@ -80,7 +82,7 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
               <span className="bg-primary text-on-primary px-4 py-1.5 rounded text-xs font-black uppercase tracking-tighter mb-6 inline-block">
                 {project.category}
               </span>
-              <h1 className="text-6xl md:text-9xl font-black uppercase tracking-tighter leading-none text-white mb-4">
+              <h1 className="text-3xl sm:text-5xl md:text-9xl font-black uppercase tracking-tighter leading-none text-white mb-4">
                 {project.title}
               </h1>
               <div className="flex flex-wrap gap-8 text-on-surface-variant font-bold uppercase tracking-widest text-xs">
@@ -103,7 +105,7 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
       </section>
 
       {/* Content Section */}
-      <section className="px-6 md:px-10 py-24 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <section className="px-6 md:px-10 py-12 md:py-24 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16">
         <div className="lg:col-span-7">
           <h2 className="text-primary font-black uppercase tracking-widest text-sm mb-6">THE BRIEF</h2>
           <div className="mb-12">
@@ -163,7 +165,7 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
       </section>
 
       {/* Gallery Section */}
-      <section className="px-6 md:px-10 py-24 bg-surface-container-lowest">
+      <section className="px-6 md:px-10 py-12 md:py-24 bg-surface-container-lowest">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-primary font-black uppercase tracking-widest text-sm mb-12 text-center">VISUAL ASSETS</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -189,12 +191,12 @@ export default function ProjectDetailView({ project, onBack }: ProjectDetailView
       </section>
 
       {/* Next Project CTA */}
-      <section className="px-6 md:px-10 py-32 text-center border-t border-outline-variant/20">
+      <section className="px-6 md:px-10 py-16 md:py-32 text-center border-t border-outline-variant/20">
         <p className="text-primary font-black uppercase tracking-widest text-sm mb-6">NEXT PROJECT</p>
-        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-12">IRON LEGACY</h2>
-        <button 
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 md:mb-12">IRON LEGACY</h2>
+        <button
           onClick={onBack}
-          className="group flex items-center space-x-4 bg-primary text-on-primary px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-lg mx-auto hover:scale-105 transition-all"
+          className="group inline-flex items-center justify-center space-x-4 bg-primary text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black uppercase tracking-widest text-base md:text-lg mx-auto hover:scale-105 transition-all w-full sm:w-auto"
         >
           <span>VIEW ALL WORK</span>
           <Icons.ArrowRight className="group-hover:translate-x-2 transition-transform" />

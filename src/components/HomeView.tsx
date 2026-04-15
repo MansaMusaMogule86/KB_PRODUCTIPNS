@@ -35,7 +35,7 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
           >
             <span className="text-primary font-mono text-xs font-bold uppercase tracking-[0.4em]">PREMIUM PRODUCTION</span>
           </motion.div>
-          <h1 className="font-headline font-black text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-tight uppercase mb-8 text-white drop-shadow-lg">
+          <h1 className="font-headline font-black text-4xl sm:text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-tight uppercase mb-8 text-white drop-shadow-lg">
             CINEMATIC <motion.span 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -372,31 +372,31 @@ export default function HomeView({ onNavigate }: HomeViewProps) {
       </section>
 
       {/* Services Section */}
-      <section className="py-32 bg-surface-container-low relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-surface-container-low relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-2xl mb-24"
+            className="max-w-2xl mb-12 md:mb-24"
           >
             <span className="text-primary font-mono text-xs font-bold uppercase tracking-[0.4em] mb-4 block">WHAT WE DO</span>
-            <h2 className="font-headline font-black text-5xl md:text-6xl uppercase tracking-tighter leading-tight">PRECISION <br/> PRODUCTION TOOLS.</h2>
+            <h2 className="font-headline font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tighter leading-tight">PRECISION <br/> PRODUCTION TOOLS.</h2>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { icon: Icons.Film, title: "DIRECTING & CINEMATOGRAPHY", desc: "Crafting visual languages that define brand identities. From high-speed action to intimate portraits." },
               { icon: Icons.Edit, title: "POST-PRODUCTION & COLOR", desc: "Precision editing and high-end color grading that gives your content a distinct cinematic aesthetic." },
               { icon: Icons.Layers, title: "CREATIVE STRATEGY", desc: "End-to-end concept development to ensure your story resonates with the right audience across all platforms." }
             ].map((service, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.15, duration: 0.6 }}
                 viewport={{ once: true }}
-                className="bg-surface-container group hover:bg-primary/10 p-10 rounded-xl flex flex-col h-full transition-all duration-300 border border-outline-variant/20 hover:border-primary/30"
+                className="bg-surface-container group hover:bg-primary/10 p-6 md:p-10 rounded-xl flex flex-col h-full transition-all duration-300 border border-outline-variant/20 hover:border-primary/30"
               >
                 <div className="text-primary mb-8 group-hover:scale-110 transition-transform duration-300">
                   <service.icon size={48} />

@@ -17,10 +17,10 @@ export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
     : PROJECTS.filter(project => project.category.toUpperCase() === activeFilter);
 
   return (
-    <div className="flex flex-col pt-32">
+    <div className="flex flex-col pt-20 md:pt-32">
       {/* Header */}
-      <header className="px-6 md:px-10 mb-20 max-w-7xl mx-auto w-full">
-        <h1 className="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-6">
+      <header className="px-6 md:px-10 mb-10 md:mb-20 max-w-7xl mx-auto w-full">
+        <h1 className="text-4xl sm:text-6xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-6">
           WORK <span className="text-primary text-glow">STUDIO</span>
         </h1>
         <p className="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
@@ -29,8 +29,8 @@ export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
       </header>
 
       {/* Filter Bar */}
-      <section className="px-6 md:px-10 mb-12 max-w-7xl mx-auto w-full overflow-x-auto">
-        <div className="flex items-center space-x-4 min-w-max pb-4">
+      <section className="px-6 md:px-10 mb-8 md:mb-12 max-w-7xl mx-auto w-full overflow-x-auto scrollbar-none">
+        <div className="flex items-center space-x-3 min-w-max pb-4">
           {filters.map((filter) => (
             <button 
               key={filter}
@@ -74,9 +74,9 @@ export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
                   key={project.id}
                   onClick={() => onProjectSelect?.(project)}
                   className={`group relative overflow-hidden rounded-2xl bg-surface-container-low cursor-pointer transition-all ${
-                    isLarge ? 'md:col-span-8 h-[600px]' : 
-                    isVertical ? 'md:col-span-4 h-[600px]' : 
-                    'md:col-span-4 h-[400px]'
+                    isLarge ? 'md:col-span-8 h-[260px] sm:h-[360px] md:h-[600px]' :
+                    isVertical ? 'md:col-span-4 h-[260px] sm:h-[360px] md:h-[600px]' :
+                    'md:col-span-4 h-[220px] sm:h-[300px] md:h-[400px]'
                   }`}
                 >
                   <img 
@@ -121,11 +121,11 @@ export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 md:px-10 py-32 bg-surface-container-low text-center">
-        <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-10 max-w-4xl mx-auto">
+      <section className="px-6 md:px-10 py-16 md:py-32 bg-surface-container-low text-center">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 md:mb-10 max-w-4xl mx-auto">
           READY TO START YOUR <span className="text-primary">NEXT PRODUCTION</span>?
         </h2>
-        <button className="group flex items-center space-x-4 bg-primary text-on-primary px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-lg mx-auto hover:scale-105 transition-all">
+        <button className="group inline-flex items-center justify-center space-x-4 bg-primary text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black uppercase tracking-widest text-base md:text-lg mx-auto hover:scale-105 transition-all w-full sm:w-auto">
           <span>START A PROJECT</span>
           <Icons.ArrowRight className="group-hover:translate-x-2 transition-transform" />
         </button>

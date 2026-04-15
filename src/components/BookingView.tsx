@@ -61,10 +61,10 @@ export default function BookingView() {
   };
 
   return (
-    <div className="flex flex-col pt-32 pb-20 px-6 relative min-h-screen">
+    <div className="flex flex-col pt-24 pb-16 px-4 md:px-6 relative min-h-screen">
       <section className="max-w-5xl w-full relative z-10 mx-auto">
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
-          <h1 className="font-headline text-5xl md:text-7xl font-black uppercase mb-4">
+        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 md:mb-16">
+          <h1 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black uppercase mb-4">
             BRING YOUR <span className="text-primary">VISION</span> TO LIFE
           </h1>
           <p className="text-on-surface-variant text-lg">{submitted ? 'Confirmed' : `Step ${String(step + 1)} of 3`}</p>
@@ -78,7 +78,7 @@ export default function BookingView() {
           </motion.div>
         ) : (
           <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-2 bg-surface-container-low backdrop-blur-xl p-12 rounded-2xl border border-primary/20 shadow-2xl">
+            <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-2 bg-surface-container-low backdrop-blur-xl p-6 md:p-12 rounded-2xl border border-primary/20 shadow-2xl">
               <div className="flex gap-3 mb-12">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className={`h-2 flex-1 rounded-full transition-all ${i <= step ? 'bg-primary shadow-primary/50' : 'bg-outline-variant/30'}`} />

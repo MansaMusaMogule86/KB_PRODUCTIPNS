@@ -17,15 +17,15 @@ export default function ServicesView() {
         </div>
         <div className="relative z-10 text-center px-6">
           <span className="font-headline font-bold text-primary uppercase tracking-[0.3em] mb-4 block text-sm md:text-base">Our Capabilities</span>
-          <h1 className="font-headline text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-none">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-8xl font-black uppercase tracking-tighter text-white leading-none">
             Cinematic <br/><span className="text-primary">Execution.</span>
           </h1>
         </div>
       </section>
 
       {/* Brand Content */}
-      <section className="bg-surface py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
+      <section className="bg-surface py-16 md:py-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16 items-center">
           <div className="w-full md:w-1/2 order-2 md:order-1">
             <div className="bg-surface-container-low rounded-2xl overflow-hidden aspect-[4/5] relative">
               <img 
@@ -40,7 +40,7 @@ export default function ServicesView() {
             </div>
           </div>
           <div className="w-full md:w-1/2 order-1 md:order-2 space-y-8">
-            <h2 className="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">Brand <br/>Content</h2>
+            <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">Brand <br/>Content</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-lg">
               We don't just film; we architect visual identities. Our brand content packages focus on long-term storytelling, creating a cohesive visual language that resonates with your core audience across all touchpoints. High-end, narrative-driven assets designed for market leaders.
             </p>
@@ -60,8 +60,8 @@ export default function ServicesView() {
       </section>
 
       {/* Commercial Production */}
-      <section className="bg-surface-container-low py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-16 items-center">
+      <section className="bg-surface-container-low py-16 md:py-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center">
           <div className="w-full md:w-1/2">
             <div className="bg-surface-container-highest rounded-2xl overflow-hidden aspect-video relative">
               <img 
@@ -74,7 +74,7 @@ export default function ServicesView() {
             </div>
           </div>
           <div className="w-full md:w-1/2 space-y-8">
-            <h2 className="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">Commercial <br/>Production</h2>
+            <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">Commercial <br/>Production</h2>
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-lg">
               Broadcast-quality production for high-stakes campaigns. From script-to-screen, we handle the logistics of large-scale shoots, talent management, and technical direction. We deliver high-impact commercials that demand attention.
             </p>
@@ -96,11 +96,11 @@ export default function ServicesView() {
       </section>
 
       {/* Social Media Packages */}
-      <section className="bg-surface-container-low py-32 px-6 md:px-10">
+      <section className="bg-surface-container-low py-16 md:py-32 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-4 space-y-6">
-              <h2 className="font-headline text-5xl font-black uppercase tracking-tighter leading-none">Social <br/>Media <br/><span className="text-primary">Packages</span></h2>
+              <h2 className="font-headline text-3xl sm:text-5xl font-black uppercase tracking-tighter leading-none">Social <br/>Media <br/><span className="text-primary">Packages</span></h2>
               <p className="text-on-surface-variant leading-relaxed">
                 Optimized for the scroll. We create fast-paced, high-retention content tailored for TikTok, Reels, and YouTube Shorts.
               </p>
@@ -117,9 +117,9 @@ export default function ServicesView() {
               </div>
             </div>
             <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-surface-container-highest p-10 rounded-2xl border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/40 transition-colors">
+              <div className="bg-surface-container-highest p-6 md:p-10 rounded-2xl border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/40 transition-colors">
                 <div>
-                  <h3 className="font-headline text-3xl font-black uppercase tracking-tighter mb-4">The Creator</h3>
+                  <h3 className="font-headline text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">The Creator</h3>
                   <ul className="space-y-4 mb-8">
                     {['5x Vertical Short-form Edits', 'Sound Design & Trending Audio', 'Professional Color Grade'].map((item) => (
                       <li key={item} className="flex text-sm text-on-surface-variant">
@@ -130,9 +130,9 @@ export default function ServicesView() {
                 </div>
                 <button className="w-full bg-surface-bright py-4 rounded-xl font-headline font-bold uppercase tracking-tighter group-hover:bg-primary group-hover:text-on-primary transition-all">GET QUOTE</button>
               </div>
-              <div className="bg-surface-container-highest p-10 rounded-2xl border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/40 transition-colors">
+              <div className="bg-surface-container-highest p-6 md:p-10 rounded-2xl border border-outline-variant/10 flex flex-col justify-between group hover:border-primary/40 transition-colors">
                 <div>
-                  <h3 className="font-headline text-3xl font-black uppercase tracking-tighter mb-4">The Campaign</h3>
+                  <h3 className="font-headline text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">The Campaign</h3>
                   <ul className="space-y-4 mb-8">
                     {['12x Multi-platform Edits', 'Motion Graphics Overlays', 'Full Raw Footage Access'].map((item) => (
                       <li key={item} className="flex text-sm text-on-surface-variant">
@@ -149,11 +149,11 @@ export default function ServicesView() {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-primary py-24 text-center">
-        <h2 className="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter text-on-primary mb-12">Ready to Start <br/>Production?</h2>
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center px-6 md:px-10">
-          <button className="bg-on-primary text-primary px-12 py-5 rounded-2xl font-headline font-black text-xl uppercase tracking-tighter hover:scale-105 transition-transform">BOOK A CALL</button>
-          <button className="border-2 border-on-primary text-on-primary px-12 py-5 rounded-2xl font-headline font-black text-xl uppercase tracking-tighter hover:bg-on-primary hover:text-primary transition-colors">VIEW RATE CARD</button>
+      <section className="bg-primary py-16 md:py-24 text-center">
+        <h2 className="font-headline text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter text-on-primary mb-8 md:mb-12 px-6">Ready to Start <br/>Production?</h2>
+        <div className="flex flex-col gap-4 justify-center items-center px-6 md:px-10">
+          <button className="w-full sm:w-auto bg-on-primary text-primary px-10 md:px-12 py-4 md:py-5 rounded-2xl font-headline font-black text-lg md:text-xl uppercase tracking-tighter hover:scale-105 transition-transform">BOOK A CALL</button>
+          <button className="w-full sm:w-auto border-2 border-on-primary text-on-primary px-10 md:px-12 py-4 md:py-5 rounded-2xl font-headline font-black text-lg md:text-xl uppercase tracking-tighter hover:bg-on-primary hover:text-primary transition-colors">VIEW RATE CARD</button>
         </div>
       </section>
     </div>

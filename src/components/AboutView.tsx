@@ -26,7 +26,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
           transition={{ duration: 1, ease: "easeOut" }}
           className="relative z-10 text-center px-6 max-w-4xl"
         >
-          <h1 className="font-headline font-black text-5xl md:text-7xl tracking-tighter leading-tight uppercase mb-6 text-white drop-shadow-lg">
+          <h1 className="font-headline font-black text-3xl sm:text-5xl md:text-7xl tracking-tighter leading-tight uppercase mb-6 text-white drop-shadow-lg">
             About <span className="text-primary">KB Productions</span>
           </h1>
           <p className="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
@@ -356,17 +356,17 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
           viewport={{ once: true }}
           className="relative z-10 max-w-3xl mx-auto text-center"
         >
-          <h2 className="font-headline font-black text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-tight mb-6 text-white">
+          <h2 className="font-headline font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-tight mb-6 text-white">
             Ready to Create <span className="text-primary">Something Extraordinary?</span>
           </h2>
           <p className="text-on-surface-variant text-lg mb-8 leading-relaxed">
             Let's collaborate and bring your vision to life with cinematic storytelling that captivates and converts.
           </p>
-          <motion.button 
+          <motion.button
             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(237, 255, 78, 0.3)" }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onNavigate?.('booking')}
-            className="bg-primary text-on-primary font-headline font-bold px-12 py-4 rounded-xl uppercase tracking-tighter transition-all shadow-lg"
+            className="w-full sm:w-auto bg-primary text-on-primary font-headline font-bold px-10 md:px-12 py-4 rounded-xl uppercase tracking-tighter transition-all shadow-lg"
           >
             Start Your Project
           </motion.button>
