@@ -6,9 +6,10 @@ import { Project } from '../types';
 
 interface PortfolioViewProps {
   onProjectSelect?: (project: Project) => void;
+  onNavigate?: (page: string) => void;
 }
 
-export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
+export default function PortfolioView({ onProjectSelect, onNavigate }: PortfolioViewProps) {
   const [activeFilter, setActiveFilter] = useState('ALL PROJECTS');
   const filters = ['ALL PROJECTS', 'REAL ESTATE', 'EVENTS', 'BRANDS', 'CARS', 'GYM'];
 
@@ -125,7 +126,7 @@ export default function PortfolioView({ onProjectSelect }: PortfolioViewProps) {
         <h2 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 md:mb-10 max-w-4xl mx-auto">
           READY TO START YOUR <span className="text-primary">NEXT PRODUCTION</span>?
         </h2>
-        <button className="group inline-flex items-center justify-center space-x-4 bg-primary text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black uppercase tracking-widest text-base md:text-lg mx-auto hover:scale-105 transition-all w-full sm:w-auto">
+        <button onClick={() => onNavigate?.('booking')} className="group inline-flex items-center justify-center space-x-4 bg-primary text-on-primary px-8 md:px-10 py-4 md:py-5 rounded-2xl font-black uppercase tracking-widest text-base md:text-lg mx-auto hover:scale-105 transition-all w-full sm:w-auto cursor-pointer">
           <span>START A PROJECT</span>
           <Icons.ArrowRight className="group-hover:translate-x-2 transition-transform" />
         </button>

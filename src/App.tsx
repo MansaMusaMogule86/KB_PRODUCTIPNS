@@ -40,9 +40,9 @@ export default function App() {
       case 'services':
         return <ServicesView />;
       case 'portfolio':
-        return <PortfolioView onProjectSelect={handleProjectSelect} />;
+        return <PortfolioView onProjectSelect={handleProjectSelect} onNavigate={setActivePage} />;
       case 'studio':
-        return <PortfolioView onProjectSelect={handleProjectSelect} />;
+        return <PortfolioView onProjectSelect={handleProjectSelect} onNavigate={setActivePage} />;
       case 'booking':
         return <BookingView />;
       case 'about':
